@@ -1,0 +1,18 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jukeaban/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run jukeaban/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t jukeaban/react-complex-client ./client
+  - docker build -t jukeaban/react-complex-nginx ./nginx
+  - docker build -t jukeaban/react-complex-server ./server
+  - docker build -t jukeaban/react-complex-worker ./worker
+#  Take these images and push them to docker hub
+
+
