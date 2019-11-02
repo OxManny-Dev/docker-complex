@@ -6,7 +6,7 @@ before_install:
   - docker build -t jukeaban/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true jukeaban/react-complex-test npm test -- --coverage
+  - docker run -e CI=true jukeaban/react-complex-test npm test
 
 after_success:
   - docker build -t jukeaban/react-complex-client ./client
@@ -14,6 +14,10 @@ after_success:
   - docker build -t jukeaban/react-complex-server ./server
   - docker build -t jukeaban/react-complex-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push jukeaban/react-complex-client
+  - docker push jukeaban/react-complex-nginx
+  - docker push jukeaban/react-complex-server
+  - docker push jukeaban/react-complex-worker
 #  Take these images and push them to docker hub
 
 
