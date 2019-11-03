@@ -11,7 +11,7 @@
     {
       "name": "server",
       "image": "jukeaban/react-complex-server",
-      "hostname": "server",
+      "hostname": "api",
       "essential": false,
       "memory": 128
     },
