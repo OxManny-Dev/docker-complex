@@ -20,4 +20,20 @@ after_success:
   - docker push jukeaban/react-complex-worker
 #  Take these images and push them to docker hub
 
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-1
+  app: multi-complex-docker
+  env: MultiComplexDocker-env
+#  Go to S3 to get this
+  bucket_name: elasticbeanstalk-us-west-1-735365176421
+  bucker_path: docker-multi
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+
+
 
