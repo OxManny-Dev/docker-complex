@@ -51,6 +51,8 @@ class Fib extends Component {
     }
     
     render(){
+        console.log(this.state.seenIndexes);
+        console.log(this.state.values);
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
