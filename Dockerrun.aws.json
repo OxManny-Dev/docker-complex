@@ -18,6 +18,7 @@
     {
       "name": "worker",
       "image": "jukeaban/react-complex-worker",
+      "hostname": "worker",
       "essential": false,
       "memory": 128
     },
