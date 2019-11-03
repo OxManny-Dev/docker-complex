@@ -23,8 +23,8 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: us-west-1
-  app: multi-complex-docker
-  env: MultiComplexDocker-env
+  app: multi-docker-complex
+  env: MultiDockerComplex-env
 #  Go to S3 to get this
   bucket_name: elasticbeanstalk-us-west-1-735365176421
   bucker_path: docker-multi
